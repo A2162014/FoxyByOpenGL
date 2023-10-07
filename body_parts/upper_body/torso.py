@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from shapes import cylinder, hemisphere
+from utilities.shapes import hemisphere, cylinder
 
 # Define the red and peach color in normalized RGB format
 red = (251 / 255.0, 75 / 255.0, 44 / 255.0)

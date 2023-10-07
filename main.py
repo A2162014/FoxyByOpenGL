@@ -1,25 +1,25 @@
 import pygame
-from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
-from OpenGL.GLUT import *
+from pygame.locals import *
 
+from utilities import settings, texture
+
+import head
 import lower_body
 import upper_body
-import head
 
+# Initialize camera settings
+camera_x, camera_y = 0, 0
+camera_speed = 0.15
 
-# Initialize OpenGL settings
-def init_opengl(window_size):
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    aspect_ratio = window_size[0] / window_size[1]
-    glFrustum(-aspect_ratio, aspect_ratio, -1, 1, 1, 50)  # Set up perspective projection
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
-    glTranslatef(0, 0, -5)
-    glEnable(GL_DEPTH_TEST)  # Enable depth testing for 3D rendering
-    glDepthFunc(GL_LESS)
+# Initialize camera rotation angles
+camera_rotation_x = 0
+camera_rotation_y = 0
+
+# Initialize mouse interaction variables
+mouse_pressed = False
+last_mouse_pos = None
 
 
 # Get 3D coordinates of the mouse cursor
@@ -29,19 +29,6 @@ def get_3d_coordinates():
     mouse_z = glReadPixels(mouse_x, viewport[3] - mouse_y, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT)
     mouse_x, mouse_y, mouse_z = gluUnProject(mouse_x, viewport[3] - mouse_y, mouse_z)
     return mouse_x, mouse_y, mouse_z
-
-
-# Initialize camera settings
-camera_x, camera_y = 0, 0
-camera_speed = 0.5
-
-# Initialize camera rotation angles
-camera_rotation_x = 0
-camera_rotation_y = 0
-
-# Initialize mouse interaction variables
-mouse_pressed = False
-last_mouse_pos = None
 
 
 # Handle user input
@@ -103,12 +90,12 @@ def main():
     pygame.display.set_mode(window_size, DOUBLEBUF | OPENGL)
 
     # Initialize OpenGL
-    init_opengl(window_size)
+    settings.init_opengl(window_size)
 
     # Set initial camera parameters
-    initial_camera_position = (-1.8, -12.6, -10)
-    zoom = -5
-    zoom_speed = 0.5  # Define zoom_speed here
+    initial_camera_position = (-1.8, -11, -10)
+    zoom = -2
+    zoom_speed = 0.15  # Define zoom_speed here
 
     while True:
         # Handle user input
@@ -126,6 +113,13 @@ def main():
                      initial_camera_position[2] + zoom)
         glRotatef(camera_rotation_x, 1, 0, 0)  # Rotate based on mouse movement
         glRotatef(camera_rotation_y, 0, 1, 0)
+
+        glPushMatrix()
+        glColor3f(1,1,1)
+        glScalef(2.2, 2.2, 2.2)
+        glTranslatef(-4,2,0)
+        texture.render_image("resources/texture_image.png")
+        glPopMatrix()
 
         # Rendering functions for lower, upper body, head
         lower_body.render_lower_body()

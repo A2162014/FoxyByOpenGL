@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from shapes import sphere
+from utilities.shapes import sphere
 
 red = (251 / 255.0, 76 / 255.0, 43 / 255.0)
 

@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from shapes import cylinder
+from utilities.shapes import cylinder
 
 # Define the brown color in normalized RGB format
 brown = (160 / 255.0, 90 / 255.0, 45 / 255.0)

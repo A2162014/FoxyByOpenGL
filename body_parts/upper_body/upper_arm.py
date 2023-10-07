@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from shapes import cylinder, sphere
+from utilities.shapes import sphere, cylinder
 
 red = (251 / 255.0, 75 / 255.0, 44 / 255.0)
 grey = (160 / 255.0, 159 / 255.0, 163 / 255.0)

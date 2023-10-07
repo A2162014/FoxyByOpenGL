@@ -1,6 +1,6 @@
 from OpenGL.GL import *
 
-from shapes import torus, cylinder, prisim, hemisphere
+from utilities.shapes import torus, hemisphere, prisim, cylinder
 
 brown = (160 / 255.0, 90 / 255.0, 45 / 255.0)
 red = (251 / 255.0, 75 / 255.0, 44 / 255.0)

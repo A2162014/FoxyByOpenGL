@@ -1,6 +1,6 @@
 from OpenGL.GL import *
 
-from shapes import torus, hemisphere
+from utilities.shapes import torus, hemisphere
 
 brown = (160 / 255.0, 90 / 255.0, 45 / 255.0)
 dark_red = (156 / 255.0, 54 / 255.0, 42 / 255.0)

@@ -1,6 +1,6 @@
 from OpenGL.GL import *
 
-from shapes import hemisphere, cone, sphere
+from utilities.shapes import hemisphere, cone, sphere
 
 red = (251 / 255.0, 76 / 255.0, 43 / 255.0)
 peach = (245 / 255.0, 189 / 255.0, 173 / 255.0)

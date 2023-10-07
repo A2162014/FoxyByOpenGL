@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from shapes import cylinder
+from utilities.shapes import cylinder
 
 grey = (167 / 255.0, 169 / 255.0, 173 / 255.0)
 

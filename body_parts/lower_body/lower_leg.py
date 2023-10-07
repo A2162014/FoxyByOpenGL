@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from shapes import torus, cylinder
+from utilities.shapes import torus, cylinder
 
 # Define the gray color in normalized RGB format
 grey = (167 / 255.0, 169 / 255.0, 173 / 255.0)

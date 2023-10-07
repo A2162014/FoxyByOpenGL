@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from shapes import prisim
+from utilities.shapes import prisim
 
 grey = (167 / 255.0, 169 / 255.0, 173 / 255.0)
 
