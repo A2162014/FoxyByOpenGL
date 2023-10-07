@@ -114,6 +114,7 @@ def main():
         glRotatef(camera_rotation_x, 1, 0, 0)  # Rotate based on mouse movement
         glRotatef(camera_rotation_y, 0, 1, 0)
 
+        # render names
         glPushMatrix()
         glColor3f(1,1,1)
         glScalef(2.2, 2.2, 2.2)
